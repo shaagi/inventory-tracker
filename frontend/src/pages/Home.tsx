@@ -39,6 +39,13 @@ const Home = () => {
           </div>
         ))}
       </div>
+      <div>
+        <Link to={`/add`}>
+           <button className="h-10 px-6 font-semibold rounded-md border">
+              Add Item
+            </button>
+        </Link>
+      </div>
     </div>
   )
 }

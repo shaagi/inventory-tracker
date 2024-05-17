@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
-import { productModel } from "../interfaces";
 import axios from "axios";
 
 
 const Update = () => {
-    // const [inventoryList, setInventoryList] = useState<productModel[]>([]);
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(0);
     const [price, setPrice] = useState(0);
@@ -44,22 +42,6 @@ const Update = () => {
             });
     }
   return (
-    // <div></div>
-    // <div>
-    //        <h1 className="flex-auto text-lg font-semibold text-center">Clothing shop Inventory tracker</h1>
-    //   <div className="text-center  space-y-4">
-    //     {inventoryList.map((clothingItem) => (
-    //       <div className=" pt-6 md:p-8 md:text-left" key={clothingItem.productId}>
-           
-    //         <h2>Item Name: {clothingItem.name}</h2>
-    //         <p>Quantity in stock: {clothingItem.quantity} units</p>
-    //         <p>Item price: ${clothingItem.price}</p>
-            
-            
-    //       </div>
-    //     ))}
-    //   </div>
-
       <div className="p-4">
       
       <h1 className="text-3x1 my-4">Edit Item</h1>
