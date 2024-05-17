@@ -1,9 +1,26 @@
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const Add = () => {
+    const [name, setName] = useState("");
+    const [quantity, setQuantity] = useState(0);
+    const [price, setPrice] = useState(0);
+    const navigate = useNavigate();
 
     const handleAdd = () => {
-        console.log('button connected');
+        const newItem = {
+            name,
+            quantity,
+            price
+        }
+        axios.post('http://localhost:8800/inventory', newItem)
+            .then(() => {
+                navigate("/");
+            }).catch((error) => {
+                console.log(error);
+            });
     }
   return (
     <div className="p-4">
@@ -16,7 +33,7 @@ const Add = () => {
           <input
             type="text"
             placeholder="socks"
-            // onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2 w-full"
           />
         </div>
@@ -25,7 +42,7 @@ const Add = () => {
           <input
             type="number"
             placeholder="5"
-            // onChange={(e) => setQuantity(+e.target.value)}
+            onChange={(e) => setQuantity(+e.target.value)}
             min="0"
             className="border-2 border-gray-500 px-4 py-2 w-full"
           />
@@ -36,7 +53,7 @@ const Add = () => {
             type="number"
             placeholder="15"
             min="0"
-            // onChange={(e) => setPrice(+e.target.value)}
+            onChange={(e) => setPrice(+e.target.value)}
             className="border-2 border-gray-500 px-4 py-2 w-full"
           />
         </div>
