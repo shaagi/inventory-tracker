@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
-
-interface productModel {
-    productId: number,
-    name: string,
-    quantity: number,
-    price: number
-}
+import { productModel } from "../interfaces";
 
 const Home = () => {
     const [inventoryList, setInventoryList] = useState<productModel[]>([]);

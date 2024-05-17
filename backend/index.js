@@ -29,6 +29,18 @@ app.get("/inventory", (req, res) => {
     });
 });
 
+app.get("/inventory/:id", (req, res) => {
+    const q = "SELECT * FROM clothes WHERE productId = ?";
+    const id = req.params.id;
+    db.query(q, id,(err, data) => {
+      if (err) {
+        console.log(err);
+        return res.json(err);
+      }
+      return res.json(data);
+    });
+});
+
 app.post("/inventory", (req, res) => {
     const q = "INSERT INTO clothes(`name`, `quantity`, `price`) VALUES (?)";
   
