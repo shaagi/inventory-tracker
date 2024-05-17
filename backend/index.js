@@ -56,7 +56,7 @@ app.post("/inventory", (req, res) => {
     });
   });
 
-  app.put("/inventory/:id", (req, res) => {
+app.put("/inventory/:id", (req, res) => {
     const id = req.params.id;
     const q = "UPDATE clothes SET `name` = ?, `quantity` = ?, `price` = ? WHERE productId = ?";
     const values = [
@@ -68,6 +68,16 @@ app.post("/inventory", (req, res) => {
     db.query(q, [...values, id], (err, data) => {
         if (err) return res.json(err);
         return res.json("Item has been updated successfully");
+    });
+})
+
+app.delete("/inventory/:id", (req, res) => {
+    const id = req.params.id;
+    const q = "DELETE FROM clothes WHERE productId = ?";
+
+    db.query(q, [id], (err, data) => {
+        if (err) return res.json(err);
+        return res.json("Item has been deleted successfully");
     });
 })
 

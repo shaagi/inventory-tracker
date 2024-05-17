@@ -20,6 +20,15 @@ const Home = () => {
         fetchAllInventory();
     }, [])
 
+    const handleDelete = async (id: Number) => {
+      try {
+        await axios.delete("http://localhost:8800/inventory/" + id);
+        window.location.reload();
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
   return (
     <div>
         <h1 className="flex-auto text-lg font-semibold text-center">Clothing shop Inventory tracker</h1>
@@ -35,6 +44,14 @@ const Home = () => {
                     Update Item
                 </button>
             </Link>
+            
+            <button 
+              className="h-10 px-6 font-semibold rounded-md border"
+              onClick={() => handleDelete(clothingItem.productId)}
+            >
+              Delete Item
+            </button>
+           
             
           </div>
         ))}
