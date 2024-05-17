@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { productModel } from "../interfaces";
 import axios from "axios";
 
@@ -10,6 +10,7 @@ const Update = () => {
     const [quantity, setQuantity] = useState(0);
     const [price, setPrice] = useState(0);
     const {id} = useParams();
+    const navigate = useNavigate();
     console.log(id);
 
     useEffect(() => {
@@ -27,6 +28,21 @@ const Update = () => {
             console.log(error);
           });
       }, []);
+
+    const handleEditItem = () => {
+        const updatedItem = {
+            name,
+            quantity,
+            price
+        }
+        axios
+            .put(`http://localhost:8800/inventory/${id}`, updatedItem)
+            .then(() => {
+                navigate("/");
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
   return (
     // <div></div>
     // <div>
@@ -77,9 +93,9 @@ const Update = () => {
             className="border-2 border-gray-500 px-4 py-2 w-full"
           />
         </div>
-        {/* <button className="p-2 bg-sky-300 m-8" onClick={handleEditBook}>
+        <button className="p-2 bg-sky-300 m-8" onClick={handleEditItem}>
           Save
-        </button> */}
+        </button>
       </div>
     </div>
     

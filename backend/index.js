@@ -56,7 +56,20 @@ app.post("/inventory", (req, res) => {
     });
   });
 
+  app.put("/inventory/:id", (req, res) => {
+    const id = req.params.id;
+    const q = "UPDATE clothes SET `name` = ?, `quantity` = ?, `price` = ? WHERE productId = ?";
+    const values = [
+        req.body.name, 
+        req.body.quantity, 
+        req.body.price 
+    ];
 
+    db.query(q, [...values, id], (err, data) => {
+        if (err) return res.json(err);
+        return res.json("Item has been updated successfully");
+    });
+})
 
 app.listen(8800, ()=>{
     console.log("Connected to backen1d")
