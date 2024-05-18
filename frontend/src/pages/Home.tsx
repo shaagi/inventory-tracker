@@ -66,12 +66,12 @@ const Home = () => {
         
       </div>
       
-      <div>
+      <div className="ms-4 p-3">
       
         <Link to={`/add`}>
-           <button className="h-10 px-6 font-semibold rounded-md border">
+           <Button className="h-10 px-6 font-semibold rounded-md border">
               Add Item
-            </button>
+            </Button>
         </Link>
       </div>
     </div>
