@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
 import { productModel } from "../interfaces";
+import Badge from 'react-bootstrap/Badge';
 
 const Home = () => {
     const [inventoryList, setInventoryList] = useState<productModel[]>([]);
@@ -31,6 +32,9 @@ const Home = () => {
 
   return (
     <div>
+      <h1>
+        Example heading <Badge bg="secondary">New</Badge>
+      </h1>
         <h1 className="flex-auto text-lg font-semibold text-center">Clothing shop Inventory tracker</h1>
       <div className="text-center  space-y-4">
         {inventoryList.map((clothingItem) => (
