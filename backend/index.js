@@ -1,13 +1,19 @@
 import express from "express";
 import mysql from "mysql2"
 import cors from "cors"
+import 'dotenv/config'
+
+// Access the environment variables
+const dbPass = process.env.DB_PASS;
 
 const app = express()
+
+// console.log(`Hello ${process.env.DB_PASS}`)
 
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "mwi$he$96",
+    password: dbPass,
     database: "product_inventory_db"
 })
 
