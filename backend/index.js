@@ -8,14 +8,7 @@ const dbPass = process.env.DB_PASS;
 
 const app = express()
 
-// console.log(`Hello ${process.env.DB_PASS}`)
 
-// const db = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: dbPass,
-//     database: "product_inventory_db"
-// })
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,

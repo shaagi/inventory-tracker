@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 
 
 const Add = () => {
+    const backend_url = import.meta.env.VITE_BACKEND_URL;
+
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(0);
     const [price, setPrice] = useState(0);
@@ -17,7 +19,7 @@ const Add = () => {
             quantity,
             price
         }
-        axios.post('http://localhost:8800/inventory', newItem)
+        axios.post(backend_url + '/inventory', newItem)
             .then(() => {
                 navigate("/");
             }).catch((error) => {

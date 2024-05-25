@@ -5,14 +5,18 @@ import { productModel } from "../interfaces";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+
+
 const Home = () => {
     const [inventoryList, setInventoryList] = useState<productModel[]>([]);
-
+    const backend_url = import.meta.env.VITE_BACKEND_URL;
 
     useEffect(() => {
+    
         const fetchAllInventory = async () => {
             try {
-                const res = await axios.get("http://localhost:8800/inventory");
+                const res = await axios.get(backend_url + "/inventory");
+                // const res = await axios.get(`${process.env.DB_HOST}`);
                 console.log(res.data);
                 setInventoryList(res.data);
             } catch (err) {
