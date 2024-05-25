@@ -10,12 +10,12 @@ const app = express()
 
 // console.log(`Hello ${process.env.DB_PASS}`)
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: dbPass,
-    database: "product_inventory_db"
-})
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: dbPass,
+//     database: "product_inventory_db"
+// })
 
 app.use(cors())
 app.use(express.json())
