@@ -16,6 +16,12 @@ const app = express()
 //     password: dbPass,
 //     database: "product_inventory_db"
 // })
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
+})
 
 app.use(cors())
 app.use(express.json())
