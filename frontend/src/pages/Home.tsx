@@ -17,7 +17,9 @@ const Home = () => {
             try {
                 const res = await axios.get(backend_url + "/inventory");
                 // const res = await axios.get(`${process.env.DB_HOST}`);
-                console.log("is you: "+ res.data);
+                console.log('is you');
+                console.log(res.data);
+                console.log('is you');
                 setInventoryList(res.data);
             } catch (err) {
                 console.log(err);
