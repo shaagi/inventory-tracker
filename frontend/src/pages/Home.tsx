@@ -26,7 +26,7 @@ const Home = () => {
 
     const handleDelete = async (id: Number) => {
       try {
-        await axios.delete("http://localhost:8800/inventory/" + id);
+        await axios.delete(backend_url + "/inventory/" + id);
         window.location.reload();
       } catch (err) {
         console.log(err);

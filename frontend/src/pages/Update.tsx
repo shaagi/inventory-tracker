@@ -11,12 +11,13 @@ const Update = () => {
     const [price, setPrice] = useState(0);
     const {id} = useParams();
     const navigate = useNavigate();
+    const backend_url = import.meta.env.VITE_BACKEND_URL;
     console.log(id);
 
     useEffect(() => {
         
         axios
-          .get(`http://localhost:8800/inventory/${id}`)
+          .get(backend_url +`/inventory/${id}`)
           .then((response) => {
             setName(response.data[0].name);
             setQuantity(response.data[0].quantity);
@@ -36,7 +37,7 @@ const Update = () => {
             price
         }
         axios
-            .put(`http://localhost:8800/inventory/${id}`, updatedItem)
+            .put(backend_url +`/inventory/${id}`, updatedItem)
             .then(() => {
                 navigate("/");
             }).catch((error) => {
