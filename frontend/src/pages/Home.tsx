@@ -36,7 +36,8 @@ const Home = () => {
   return (
     <div>
      
-      <h1 className="flex-auto text-lg font-semibold text-center">Clothing shop Inventory tracker</h1>
+      {/* <h1 className="flex-auto text-lg font-semibold text-center">Clothing shop Inventory tracker</h1> */}
+      <h1 className="ms-4 p-3">Clothing shop Inventory tracker</h1>
       <div>
         {inventoryList.map((clothingItem) => (
           <div className="ms-4 p-3" key={clothingItem.productId}>
