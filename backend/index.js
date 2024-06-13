@@ -6,7 +6,7 @@ import 'dotenv/config'
 // Access the environment variables
 const dbPass = process.env.DB_PASS;
 
-const app = express()
+const app = express() 
 
 
 const db = mysql.createConnection({
