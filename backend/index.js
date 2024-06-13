@@ -86,8 +86,26 @@ app.delete("/inventory/:id", (req, res) => {
     });
 })
 
-const server = app.listen(8800, ()=>{
-    console.log("Connected to backen1d")
-})
+// const server = app.listen(8800, ()=>{
+//     console.log("Connected to backen1d")
+// })
 
-export {app, server, db};
+// export {app, server, db};
+
+// Export only app and db for testing purposes
+export { app, db };
+
+// For local development, start the server with app.listen
+if (process.env.NODE_ENV !== 'test') {
+    const server = app.listen(8800, () => {
+        console.log("Connected to backend");
+    });
+
+    // Optionally, handle server shutdown on termination signals
+    process.on('SIGINT', () => {
+        server.close(() => {
+            console.log('Server closed gracefully');
+            process.exit(0);
+        });
+    });
+}
