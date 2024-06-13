@@ -92,20 +92,17 @@ app.delete("/inventory/:id", (req, res) => {
 
 // export {app, server, db};
 
-// Export only app and db for testing purposes
-export { app, db };
 
-// For local development, start the server with app.listen
-if (process.env.NODE_ENV !== 'test') {
+export default app; // Exporting the Express app as default for deployment
+
+// If the script is run directly, start the server
+if (require.main === module) {
     const server = app.listen(8800, () => {
         console.log("Connected to backend");
     });
 
-    // Optionally, handle server shutdown on termination signals
-    process.on('SIGINT', () => {
-        server.close(() => {
-            console.log('Server closed gracefully');
-            process.exit(0);
-        });
+    // Optionally handle server errors
+    server.on("error", err => {
+        console.error("Server error:", err);
     });
 }

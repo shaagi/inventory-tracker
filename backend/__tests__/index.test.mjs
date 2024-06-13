@@ -1,5 +1,5 @@
 import mysql from "mysql2";
-import { app, db } from "../index";
+import app from "../index";
 
 jest.mock("mysql2", () => {
     const mConnection = {
@@ -32,12 +32,7 @@ describe("MySQL Connection", () => {
         expect(mysql.createConnection).toHaveBeenCalledWith(expectedConfig);
     });
 
-     // Optionally, close the database connection after all tests
-     afterAll(async () => {
-        if (db) {
-            db.end(); // Close MySQL connection if it exists
-        }
-    });
+     
 
     // Write your other tests here
 });
