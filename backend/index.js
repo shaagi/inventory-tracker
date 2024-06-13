@@ -88,6 +88,7 @@ app.delete("/inventory/:id", (req, res) => {
 
 // const server = app.listen(8800, ()=>{
 //     console.log("Connected to backen1d")
+//     console.log(process.env);
 // })
 
 // export {app, server, db};
@@ -96,7 +97,7 @@ app.delete("/inventory/:id", (req, res) => {
 export default app; // Exporting the Express app as default for deployment
 
 // If the script is run directly, start the server
-if (require.main === module) {
+if (!process.env.NODE_ENV) {
     const server = app.listen(8800, () => {
         console.log("Connected to backend");
     });
