@@ -5,8 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon index.js"
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.test.mjs"
+    ],
+    "transform": {
+      "^.+\\.m?js$": "babel-jest"
+    }
   },
   "keywords": [],
   "author": "",
@@ -17,5 +25,11 @@
     "express": "^4.19.2",
     "mysql2": "^3.9.7",
     "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
   }
 }
