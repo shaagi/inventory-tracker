@@ -98,6 +98,7 @@ export default app; // Exporting the Express app as default for deployment
 
 // If the script is run directly, start the server
 if (!process.env.NODE_ENV) {
+    console.log('here');
     const server = app.listen(8800, () => {
         console.log("Connected to backend");
     });
