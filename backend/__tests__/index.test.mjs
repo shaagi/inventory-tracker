@@ -35,5 +35,5 @@ describe("MySQL Connection", () => {
 
         // Optionally add a delay or await for any async cleanup tasks
         await new Promise(resolve => setTimeout(() => resolve(), 500)); // Adjust delay as needed
-    });
+    });  
 });
