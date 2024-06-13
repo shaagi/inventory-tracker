@@ -1,5 +1,6 @@
 import mysql from "mysql2";
 import app from "../index";
+import 'dotenv/config'
 
 jest.mock("mysql2", () => {
     const mConnection = {
