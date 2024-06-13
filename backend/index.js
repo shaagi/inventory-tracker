@@ -86,8 +86,6 @@ app.delete("/inventory/:id", (req, res) => {
     });
 })
 
-const server = app.listen(8800, ()=>{
+app.listen(8800, ()=>{
     console.log("Connected to backen1d")
 })
-
-export {app, server, db};
