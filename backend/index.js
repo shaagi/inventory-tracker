@@ -6,7 +6,7 @@ import 'dotenv/config'
 // Access the environment variables
 const dbPass = process.env.DB_PASS;
 
-const app = express()
+const app = express() 
 
 
 const db = mysql.createConnection({
@@ -86,6 +86,7 @@ app.delete("/inventory/:id", (req, res) => {
     });
 })
 
+
 // const server = app.listen(8800, ()=>{
 //     console.log("Connected to backen1d")
 //     console.log(process.env);
@@ -108,3 +109,4 @@ if (!process.env.NODE_ENV) {
         console.error("Server error:", err);
     });
 }
+
