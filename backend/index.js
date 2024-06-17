@@ -87,26 +87,23 @@ app.delete("/inventory/:id", (req, res) => {
 })
 
 
-// const server = app.listen(8800, ()=>{
-//     console.log("Connected to backen1d")
-//     console.log(process.env);
-// })
-
-// export {app, server, db};
+const server = app.listen(8800, ()=>{
+    console.log("Connected to backen1d")
+})
 
 
-export default app; // Exporting the Express app as default for deployment
+// export default app; // Exporting the Express app as default for deployment
 
-// If the script is run directly, start the server
-if (!process.env.NODE_ENV) {
-    console.log('here');
-    const server = app.listen(8800, () => {
-        console.log("Connected to backend");
-    });
+// // If the script is run directly, start the server
+// if (!process.env.NODE_ENV) {
+//     console.log('here');
+//     const server = app.listen(8800, () => {
+//         console.log("Connected to backend");
+//     });
 
-    // Optionally handle server errors
-    server.on("error", err => {
-        console.error("Server error:", err);
-    });
-}
+//     // Optionally handle server errors
+//     server.on("error", err => {
+//         console.error("Server error:", err);
+//     });
+// }
 
