@@ -91,7 +91,6 @@ const server = app.listen(8800, ()=>{
     console.log("Connected to backen1d")
 })
 
-// export {app, server, db};
 
 
 // export default app; // Exporting the Express app as default for deployment
